@@ -1,0 +1,6 @@
+@extends('layouts.app')
+@section('title', 'Ticket Submitted — NEXA Desk')
+@section('page-title', 'Ticket submitted')
+@section('content')
+<section class="success-page"><span class="success-check">✓</span><span class="eyebrow">REQUEST RECEIVED</span><h1>Ticket submitted successfully!</h1><p>We have shared your request with the right support team. You can follow every update from your tickets page.</p><div class="success-ticket-card"><span class="success-ticket-icon">▤</span><div><small>TICKET NUMBER</small><strong id="success-ticket-id">NX-2026-004282</strong></div><x-status-badge status="New"/></div><div class="success-facts"><div><small>Category</small><strong id="success-category">IT Support</strong></div><div><small>Priority</small><strong id="success-priority">Medium</strong></div><div><small>Assigned team</small><strong id="success-team">IT Support</strong></div><div><small>Created</small><strong>Sep 28, 2026</strong></div></div><div class="success-actions"><x-button id="success-view-ticket" href="{{ route('user.tickets') }}" variant="primary">View ticket <span>→</span></x-button><x-button href="{{ route('user.dashboard') }}">Back to dashboard</x-button></div></section>
+@endsection
