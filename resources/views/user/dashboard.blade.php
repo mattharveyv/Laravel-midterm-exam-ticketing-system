@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Dashboard — NEXA Desk')
+@section('title', 'Dashboard — Problinx')
 @section('page-title', 'Dashboard')
 @section('content')
 @php

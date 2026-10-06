@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'My Profile — NEXA Desk')
+@section('title', 'My Profile — Problinx')
 @section('page-title', 'My profile')
 @section('content')
 <div class="page-heading"><div><span class="eyebrow">YOUR ACCOUNT</span><h1>My profile</h1><p>Keep your contact details up to date for your support requests.</p></div><button class="btn btn-primary" data-action="edit-profile">Edit profile <span>✎</span></button></div>

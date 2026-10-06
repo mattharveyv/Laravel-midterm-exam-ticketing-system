@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Forgot Password — NEXA Desk')
+@section('title', 'Forgot Password — Problinx')
 
 @section('auth-content')
 <div class="auth-heading"><span class="auth-kicker">ACCOUNT ACCESS</span><h1>Forgot your password?</h1><p>Enter your email to run a local password reset simulation.</p></div>

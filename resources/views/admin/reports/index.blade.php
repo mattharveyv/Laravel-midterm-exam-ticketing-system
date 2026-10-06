@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Reports — NEXA Desk')
+@section('title', 'Reports — Problinx')
 @section('page-title', 'Reports')
 @section('content')
 @php($tickets = require resource_path('data/tickets.php'))

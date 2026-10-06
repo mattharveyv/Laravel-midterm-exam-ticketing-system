@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
 
@@ -12,6 +13,7 @@ Route::view('/admin/login', 'auth.admin-login')->name('admin.login');
 Route::view('/user/dashboard', 'user.dashboard')->name('user.dashboard');
 Route::view('/user/tickets', 'user.tickets.index')->name('user.tickets');
 Route::view('/user/tickets/create', 'user.tickets.create')->name('user.tickets.create');
+Route::post('/user/tickets', [TicketController::class, 'store'])->name('user.tickets.store');
 Route::view('/user/tickets/submitted', 'user.tickets.submitted')->name('user.tickets.submitted');
 Route::get('/user/tickets/{ticketId}', static function (string $ticketId): View {
     return view('user.tickets.show', ['ticketId' => $ticketId]);
@@ -25,7 +27,7 @@ Route::view('/user/profile', 'user.profile')->name('user.profile');
 Route::view('/user/settings', 'user.settings')->name('user.settings');
 
 Route::view('/admin/dashboard', 'admin.dashboard')->name('admin.dashboard');
-Route::view('/admin/tickets', 'admin.tickets.index')->name('admin.tickets');
+Route::get('/admin/tickets', [TicketController::class, 'index'])->name('admin.tickets');
 Route::get('/admin/tickets/kanban', static function (): View {
     $tickets = require resource_path('data/tickets.php');
     $lanes = array_fill_keys(['New', 'Open', 'In Progress', 'Waiting', 'Escalated', 'Resolved'], []);

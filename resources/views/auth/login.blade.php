@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Login — NEXA Desk')
+@section('title', 'Login — Problinx')
 
 @section('auth-content')
 <div class="auth-heading"><span class="auth-kicker">YOUR SUPPORT, ALL IN ONE PLACE</span><h1>Welcome back</h1><p>Sign in to check your requests and get help.</p></div>

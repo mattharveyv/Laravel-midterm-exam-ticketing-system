@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Canned Responses — NEXA Desk')
+@section('title', 'Canned Responses — Problinx')
 @section('page-title', 'Canned responses')
 @section('content')
 @php($responses = require resource_path('data/canned-responses.php'))

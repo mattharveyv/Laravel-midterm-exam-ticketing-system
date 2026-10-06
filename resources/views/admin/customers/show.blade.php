@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Customer Details — NEXA Desk')
+@section('title', 'Customer Details — Problinx')
 @section('page-title', 'Customer details')
 @section('content')
 @php($users = require resource_path('data/users.php'))

@@ -1,9 +1,6 @@
 import { store, saveStore, escapeHtml, toast, getSession } from './core.js';
 
 const categories = ['IT Support', 'Hardware', 'Software', 'Network', 'Account', 'Billing', 'Security', 'Bug Report', 'Feature Request', 'General Inquiry'];
-const idNumber = (ticketId) => Number(String(ticketId).match(/(\d+)$/)?.[1] || 0);
-const nextTicketId = () => `NX-${new Date().getFullYear()}-${String(Math.max(4281, ...store.tickets.map((ticket) => idNumber(ticket.id))) + 1).padStart(6, '0')}`;
-
 function setWizardStep(step) {
     document.querySelectorAll('[data-step]').forEach((panel) => panel.classList.toggle('active', Number(panel.dataset.step) === step));
     document.querySelectorAll('[data-step-indicator]').forEach((indicator) => {
@@ -26,35 +23,11 @@ function updateReview() {
     document.querySelector('[data-review="attachments"]').textContent = files.length ? files.join(', ') : 'None';
 }
 
-function submitTicket(form) {
-    const values = new FormData(form);
-    const session = getSession() || {};
-    const id = nextTicketId();
-    const ticket = {
-        id,
-        subject: String(values.get('subject')).trim(),
-        category: String(values.get('category')),
-        priority: String(values.get('priority')),
-        status: 'New',
-        agent: 'Unassigned',
-        team: String(values.get('department')),
-        email: session.email || 'user@nexadesk.com',
-        updated: 'Just now',
-        created: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-        description: String(values.get('description')).trim(),
-        device: String(values.get('device') || ''),
-        location: String(values.get('location') || ''),
-        attachments: [...(document.querySelector('#ticket-files')?.files || [])].map((file) => file.name),
-        messages: [{ author: session.name || 'John Davis', role: 'Customer', text: String(values.get('description')).trim(), time: 'Just now' }],
-    };
-    store.tickets.unshift(ticket);
-    saveStore();
-    sessionStorage.setItem('nexadesk-last-ticket', JSON.stringify(ticket));
-    window.location.assign(`/user/tickets/submitted?id=${encodeURIComponent(id)}`);
-}
-
 const createForm = document.querySelector('#ticket-create-form');
 if (createForm) {
+    createForm.method = 'POST';
+    createForm.action = '/user/tickets';
+
     document.addEventListener('click', (event) => {
         const next = event.target.closest('[data-next-step]');
         const previous = event.target.closest('[data-prev-step]');
@@ -84,15 +57,34 @@ if (createForm) {
             return toast('Choose a ticket category first.', 'error');
         }
         if (!createForm.reportValidity()) return;
-        submitTicket(createForm);
+
+        const session = getSession() || {};
+        const values = {
+            _token: document.querySelector('meta[name="csrf-token"]')?.content || '',
+            customer_name: session.name || 'John Davis',
+            customer_email: session.email || 'user@nexadesk.com',
+        };
+
+        Object.entries(values).forEach(([name, value]) => {
+            let input = createForm.querySelector(`input[name="${name}"]`);
+            if (!input) {
+                input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = name;
+                createForm.append(input);
+            }
+            input.value = value;
+        });
+
+        HTMLFormElement.prototype.submit.call(createForm);
     });
 }
 
 if (window.location.pathname === '/user/tickets/submitted') {
-    let ticket = null;
+    let ticket = window.NEXA_SUBMITTED_TICKET || null;
     try { ticket = JSON.parse(sessionStorage.getItem('nexadesk-last-ticket') || 'null'); } catch { ticket = null; }
     const queryId = new URLSearchParams(window.location.search).get('id');
-    ticket = store.tickets.find((item) => item.id === queryId) || ticket;
+    ticket = window.NEXA_SUBMITTED_TICKET || store.tickets.find((item) => item.id === queryId) || ticket;
     if (ticket) {
         document.querySelector('#success-ticket-id').textContent = ticket.id;
         document.querySelector('#success-category').textContent = ticket.category;

@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f4f7f6">
-    <title>@yield('title', 'NEXA Desk — Smart Ticketing & Service Hub')</title>
-    <meta name="description" content="Create, track, and manage support tickets with NEXA Desk.">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', 'Problinx — Smart Ticketing & Service Hub')</title>
+    <meta name="description" content="Create, track, and manage support tickets with Problinx.">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -24,5 +25,8 @@
         ];
     @endphp
     <script>window.NEXA_SEED = @json($nexaSeed);</script>
+    @if (session()->has('submitted_ticket'))
+        <script>window.NEXA_SUBMITTED_TICKET = @json(session('submitted_ticket'));</script>
+    @endif
 </body>
 </html>

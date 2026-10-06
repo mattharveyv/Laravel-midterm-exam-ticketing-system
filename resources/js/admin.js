@@ -128,7 +128,7 @@ document.addEventListener('click', (event) => {
         const csv = ['Ticket,Subject,Category,Priority,Status,Agent', ...store.tickets.map((ticket) => [ticket.id, ticket.subject, ticket.category, ticket.priority, ticket.status, ticket.agent].map((value) => `"${String(value).replaceAll('"', '""')}"`).join(','))].join('\r\n');
         const link = document.createElement('a');
         link.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
-        link.download = 'nexa-desk-tickets.csv';
+        link.download = 'problinx-tickets.csv';
         link.click();
         URL.revokeObjectURL(link.href);
     }

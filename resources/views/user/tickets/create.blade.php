@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Create a Ticket — NEXA Desk')
+@section('title', 'Create a Ticket — Problinx')
 @section('page-title', 'Create ticket')
 @section('content')
 <div class="page-heading"><div><span class="eyebrow">WE'RE HERE TO HELP</span><h1>Create a support ticket</h1><p>Share a few details and we will route your request to the right team.</p></div><a class="subtle-link" href="{{ route('user.tickets') }}">← Back to tickets</a></div>

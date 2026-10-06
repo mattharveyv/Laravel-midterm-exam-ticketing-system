@@ -2,10 +2,13 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class FrontendPagesTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_public_landing_and_auth_pages_render(): void
     {
         $this->get(route('home'))->assertOk()->assertSee('Support made');

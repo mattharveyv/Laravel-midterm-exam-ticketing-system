@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Ticket Workspace — NEXA Desk')
+@section('title', 'Ticket Workspace — Problinx')
 @section('page-title', 'Ticket workspace')
 @section('ticket-id', $ticketId)
 @section('content')

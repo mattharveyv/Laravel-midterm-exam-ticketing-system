@@ -85,7 +85,7 @@ registrationForm?.addEventListener('submit', (event) => {
     localStorage.setItem('nexadesk-accounts', JSON.stringify(accounts));
     setSession(account);
     saveStore();
-    showModal('Account created successfully!', `<div class="success-modal-copy"><span class="success-check">✓</span><h3>Welcome to NEXA Desk, ${firstName}!</h3><p>Your account is active. No email verification is needed for this demo.</p></div>`, '<a class="btn btn-secondary" href="/user/dashboard">Go to dashboard</a><a class="btn btn-primary" href="/user/tickets/create">Create your first ticket →</a>');
+    showModal('Account created successfully!', `<div class="success-modal-copy"><span class="success-check">✓</span><h3>Welcome to Problinx, ${firstName}!</h3><p>Your account is active. No email verification is needed for this demo.</p></div>`, '<a class="btn btn-secondary" href="/user/dashboard">Go to dashboard</a><a class="btn btn-primary" href="/user/tickets/create">Create your first ticket →</a>');
 });
 
 const forgotForm = document.querySelector('#forgot-form');

@@ -1,9 +1,9 @@
 @extends('layouts.auth')
 
-@section('title', 'Staff Login — NEXA Desk')
+@section('title', 'Staff Login — Problinx')
 
 @section('auth-content')
-<div class="auth-heading"><span class="auth-kicker">NEXA DESK · STAFF CONSOLE</span><h1>Admin sign in</h1><p>Use the demo administrator account to open the support console.</p></div>
+<div class="auth-heading"><span class="auth-kicker">PROBLINX · STAFF CONSOLE</span><h1>Admin sign in</h1><p>Use the demo administrator account to open the support console.</p></div>
 <form id="admin-login-form" class="auth-form" novalidate>
     <div id="admin-login-error" class="form-alert" role="alert" hidden>Invalid email or password.</div>
     <x-input label="Admin email" name="email" type="email" placeholder="admin@gmail.com" required autocomplete="username" />

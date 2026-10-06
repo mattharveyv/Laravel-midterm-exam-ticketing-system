@@ -11,7 +11,7 @@
     ];
 @endphp
 <aside class="sidebar" id="sidebar">
-    <a class="brand" href="{{ $admin ? route('admin.dashboard') : route('user.dashboard') }}"><span class="brand-symbol">N</span><span class="brand-name"><strong>NEXA Desk</strong><small>{{ $admin ? 'SUPPORT CONSOLE' : 'SERVICE HUB' }}</small></span><button class="sidebar-close" data-action="close-drawer" aria-label="Close menu">×</button></a>
+    <a class="brand" href="{{ $admin ? route('admin.dashboard') : route('user.dashboard') }}"><span class="brand-symbol">P</span><span class="brand-name"><strong>Problinx</strong><small>{{ $admin ? 'SUPPORT CONSOLE' : 'SERVICE HUB' }}</small></span><button class="sidebar-close" data-action="close-drawer" aria-label="Close menu">×</button></a>
     <div class="workspace-chip"><span class="workspace-mark">N</span><span><strong>Northstar Labs</strong><small>Workspace</small></span><span aria-hidden="true">⌄</span></div>
     <nav class="side-nav" aria-label="{{ $admin ? 'Admin' : 'User' }} navigation">
         @foreach ($groups as [$group, $items])

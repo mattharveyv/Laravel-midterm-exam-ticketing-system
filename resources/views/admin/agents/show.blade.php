@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Agent Profile — NEXA Desk')
+@section('title', 'Agent Profile — Problinx')
 @section('page-title', 'Agent profile')
 @section('content')
 @php($agents = require resource_path('data/agents.php'))

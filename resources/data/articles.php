@@ -15,7 +15,7 @@ $articles = [
     ['Connect a second monitor', 'Hardware', 'Set up an external display and choose the right display mode.', 54],
     ['Update your billing details', 'Billing', 'Find the right place to review billing information and invoices.', 49],
     ['Keep your account secure', 'Security', 'Everyday steps to protect your account and company data.', 42],
-    ['Getting started with NEXA Desk', 'Getting Started', 'Learn how to create, track, and update support requests.', 36],
+    ['Getting started with Problinx', 'Getting Started', 'Learn how to create, track, and update support requests.', 36],
 ];
 
 return array_map(static fn (array $article, int $index): array => [

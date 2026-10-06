@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'My Tickets — NEXA Desk')
+@section('title', 'My Tickets — Problinx')
 @section('page-title', 'My tickets')
 @section('content')
 @php($tickets = array_values(array_filter(require resource_path('data/tickets.php'), fn ($ticket) => $ticket['email'] === 'user@nexadesk.com')))

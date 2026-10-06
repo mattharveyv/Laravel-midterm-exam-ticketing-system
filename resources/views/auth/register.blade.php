@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Create Account — NEXA Desk')
+@section('title', 'Create Account — Problinx')
 
 @section('auth-content')
 <div class="auth-heading"><span class="auth-kicker">GET SUPPORT WITHOUT THE RUNAROUND</span><h1>Create your account</h1><p>Submit and manage your support tickets in one place.</p></div>

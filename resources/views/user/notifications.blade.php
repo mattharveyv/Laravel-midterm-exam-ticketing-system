@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Notifications — NEXA Desk')
+@section('title', 'Notifications — Problinx')
 @section('page-title', 'Notifications')
 @section('content')
 @php($notifications = require resource_path('data/notifications.php'))

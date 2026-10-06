@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Kanban Board — NEXA Desk')
+@section('title', 'Kanban Board — Problinx')
 @section('page-title', 'Kanban board')
 @section('content')
 <div class="page-heading"><div><span class="eyebrow">WORK IN MOTION</span><h1>Ticket kanban</h1><p>Drag requests between stages to update their status.</p></div><a class="btn btn-secondary" href="{{ route('admin.tickets') }}">← Ticket table</a></div>
@@ -13,7 +13,7 @@
 						<a href="{{ url('/admin/tickets/'.rawurlencode($ticket['id'])) }}">{{ $ticket['id'] }}</a>
 						<h3>{{ $ticket['subject'] }}</h3>
 						<div><x-priority-badge :priority="$ticket['priority']"/><small>{{ $ticket['team'] }}</small></div>
-						<footer><x-avatar :name="$ticket['agent'] === 'Unassigned' ? 'NEXA' : $ticket['agent']" size="tiny"/><small>{{ $ticket['agent'] }}</small></footer>
+						<footer><x-avatar :name="$ticket['agent'] === 'Unassigned' ? 'Problinx' : $ticket['agent']" size="tiny"/><small>{{ $ticket['agent'] }}</small></footer>
 					</article>
 				@endforeach
 			</div>
